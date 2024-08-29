@@ -1,6 +1,6 @@
 {
   "installation": {
-    "supported": "rbxhash",
+    "hash": "rbxhash",
     "version": "1.0.0"
   },
   "broadcast": {
