@@ -2,7 +2,7 @@
   "installation": {
     "supported": "rbxhash",
     "version": "1.0.0"
-  }
+  },
   "broadcast": {
     "message": "TEST TEST! BROADCAST!",
     "color": "Blue"
