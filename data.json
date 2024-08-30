@@ -1,9 +1,10 @@
 {
   "installation": {
-    "hash": "version-ad321ed0d27f48b2a",
+    "hash": "version-ad321ed0d27f48b2a"
   },
   "broadcast": {
     "message": "fluxteam is down retards go back to wave",
+    "notify": true,
     "color": "Red"
   }
 }
