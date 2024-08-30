@@ -5,6 +5,7 @@
   },
   "broadcast": {
     "message": "fluxteam is down retards, go back to wave",
+    "notifyonopen": true,
     "color": "Red"
   }
 }
