@@ -1,6 +1,6 @@
 $runningOnline = $true
 
-$ErrorActionPreference = 'SilentlyContinue'
+$ErrorActionPreference = 'Continue'
 $Global:ProgressPreference = 'SilentlyContinue'
 $localAppData = [System.Environment]::GetFolderPath([System.Environment+SpecialFolder]::localApplicationData)
 $fluxPath = (Join-Path $localAppData "FluxTeam")
@@ -281,6 +281,7 @@ for (;;) {
     } elseif ($selection -eq 4) {
         neofetch
     }
+    pause
     Clear-Host
 }
 Exit-PSSession
