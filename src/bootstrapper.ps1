@@ -109,7 +109,7 @@ logmessage -Type "FluxTeam" -Color Magenta -Message "Checking for updates..."
 Start-Sleep -Milliseconds 2000
 if ($outdated -and $installed) {
     Start-Sleep -Milliseconds 2000
-    powershellEmulator -On $false -Path "main.ps1"
+    powershellEmulator -On $false -Path "modules\update.ps1"
 }
 
 logmessage -Type "FluxTeam" -Color Magenta -Message "Starting FluxTeam..."
