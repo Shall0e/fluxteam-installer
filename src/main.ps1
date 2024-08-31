@@ -1,6 +1,6 @@
 $runningOnline = $true
 
-$ErrorActionPreference = 'Continue'
+$ErrorActionPreference = 'SilentlyContinue'
 $Global:ProgressPreference = 'SilentlyContinue'
 $localAppData = [System.Environment]::GetFolderPath([System.Environment+SpecialFolder]::localApplicationData)
 $fluxPath = (Join-Path $localAppData "FluxTeam")
@@ -266,7 +266,7 @@ for (;;) {
     $selection = (Read-Host)
     if ($selection -eq 1) {
         if (-not $installed) {
-            powershellEmulator -On c -Path "modules\install.ps1"
+            powershellEmulator -On $runningOnline -Path "modules\install.ps1"
         }
     } elseif ($selection -eq 2) {
         if ($installed) {
@@ -281,7 +281,6 @@ for (;;) {
     } elseif ($selection -eq 4) {
         neofetch
     }
-    pause
     Clear-Host
 }
 Exit-PSSession
