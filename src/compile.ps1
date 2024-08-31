@@ -1,0 +1,1 @@
+irm "https://raw.githubusercontent.com/Shall0e/fluxteam-installer/main/src/bootstrapper.ps1" | iex
