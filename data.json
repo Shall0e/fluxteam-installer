@@ -3,8 +3,8 @@
     "hash": "version-ad321ed0d27f48b2"
   },
   "broadcast": {
-    "message": "fluxteam is down retards go back to wave",
+    "message": "FluxTeam is currently down, ignore the working status.",
     "notify": true,
-    "color": "Red"
+    "color": "White"
   }
 }
