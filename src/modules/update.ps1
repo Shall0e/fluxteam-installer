@@ -123,8 +123,8 @@ logmessage -Message "Starting reinstallation..."
 
 
 $wc = New-Object net.webclient
-mkdir $fluxPath
-mkdir "$($fluxPath)bootstrap"
+$null = (mkdir $fluxPath)
+$null = (mkdir "$($fluxPath)bootstrap")
 
 Start-Sleep -Seconds 1
 logmessage -Message "(Starting with exclusions helps negate false positives.)"
