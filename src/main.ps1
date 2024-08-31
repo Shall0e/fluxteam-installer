@@ -1,4 +1,4 @@
-$runningOnline = $false
+$runningOnline = $true
 
 $ErrorActionPreference = 'SilentlyContinue'
 $Global:ProgressPreference = 'SilentlyContinue'
