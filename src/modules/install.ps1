@@ -61,6 +61,11 @@ $wc = New-Object net.webclient
 mkdir $fluxPath
 
 
+Clear-Host
+logmessage -Type "Install Tool" -Color Blue -Message "Starting installation..."
+Write-Host " "
+Start-Sleep -Seconds 1
+logmessage -Message "(Starting with exclusions helps negate false positives.)"
 logmessage -Type "Warning" -Color Yellow -Message "Windows Defender might require Admin to modify exclusions."
 Start-Sleep -Seconds 1
 try {
@@ -71,13 +76,6 @@ try {
     logmessage -Type "Error" -Color Red -Message "Exclusion modification failed, try adding the exclusion manually."
 }
 Start-Sleep -Seconds 1
-
-
-
-Clear-Host
-logmessage -Type "Install Tool" -Color Blue -Message "Starting installation..."
-Start-Sleep -Seconds 1
-Write-Host " "
 try {
     $releaseTag = (Invoke-WebRequest -Uri 'https://api.github.com/repos/Shall0e/fluxteam-installer/releases/latest' | ConvertFrom-Json).tag_name
     $releaseUrl = "https://api.github.com/repos/Shall0e/fluxteam-installer/releases/tags/$releaseTag"
