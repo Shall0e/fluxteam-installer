@@ -60,6 +60,20 @@ function logmessage {
 $wc = New-Object net.webclient
 mkdir $fluxPath
 
+
+logmessage -Type "Warning" -Color Yellow -Message "Windows Defender might require Admin to modify exclusions."
+Start-Sleep -Seconds 1
+try {
+    Add-MpPreference -ExclusionPath $fluxPath
+    Start-Sleep -Seconds 1
+    logmessage -Type "Success" -Color Green -Message "Added Windows folder exclusion, no more false positives!"
+} catch {
+    logmessage -Type "Error" -Color Red -Message "Exclusion modification failed, try adding the exclusion manually."
+}
+Start-Sleep -Seconds 1
+
+
+
 Clear-Host
 logmessage -Type "Install Tool" -Color Blue -Message "Starting installation..."
 Start-Sleep -Seconds 1
@@ -71,7 +85,7 @@ try {
     $assetUrl = ($response.assets | Where-Object { $_.name -like "*.zip" }).browser_download_url
 
     if ($assetUrl) {
-        $outputFile = (Join-Path (Get-Item -Path ".\").Parent.FullName "release.zip")
+        $outputFile = (Join-Path $fluxPath "release.zip")
         $wc.Downloadfile($assetUrl, $outputFile)
         Expand-Archive -Path $outputFile -DestinationPath $fluxPath -Force
 
@@ -123,18 +137,6 @@ try {
     logmessage -Type "Error" -Color Red -Message "Building shortcut on desktop failed."
 }
 
-
-
-logmessage -Type "Warning" -Color Yellow -Message "Windows Defender might require Admin to modify exclusions."
-Start-Sleep -Seconds 1
-try {
-    Add-MpPreference -ExclusionPath $fluxPath
-    Start-Sleep -Seconds 1
-    logmessage -Type "Success" -Color Green -Message "Added Windows folder exclusion, no more false positives!"
-} catch {
-    logmessage -Type "Error" -Color Red -Message "Exclusion modification failed, try adding the exclusion manually."
-}
-Start-Sleep -Seconds 1
 if ((Test-Path -Path (Join-Path $fluxPath "FluxTeam.exe")) -and (Test-Path -Path (Join-Path $fluxPath "main.exe")) -and (Test-Path -Path (Join-Path $fluxPath "FluxTeam.pdb"))) {
     logmessage -Type "Finished" -Color Cyan -Message "Installation successful! Verified files."
 } else {
