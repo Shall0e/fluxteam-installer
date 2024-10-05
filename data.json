@@ -1,9 +1,9 @@
 {
   "installation": {
-    "hash": "version-ad321ed0d27f48b2"
+    "hash": "version-d2bde6b0a05e4840"
   },
   "broadcast": {
-    "message": "FluxTeam is currently down, ignore the working status.",
+    "message": "FTbootstrapper first release, enjoy!",
     "notify": true,
     "color": "White"
   }
